@@ -1,0 +1,20 @@
+
+
+Quiz:
+
+- more on specific motivations / goals for interpretability ??
+
+- Data Attribution
+
+- Counterfactual Explanations
+
+- levels of interpretability
+
+
+
+
+
+- review of basics on (in-)dependence, conditional probabilities / expectations, joint / marginal distributions   (better in homework or as homework sheet 0)
+
+
+
