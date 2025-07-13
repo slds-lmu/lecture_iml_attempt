@@ -75,3 +75,74 @@ Behaves weirdly now,
 
 ## Internal notes:
 Repo location is `\\wsl.localhost\Ubuntu\root\lecture_service_attempt`
+
+# Steps
+
+1. First line should be `\documentclass[11pt,compress,t,notes=noshow, xcolor=table]{beamer}`
+2. Comment out `\usepackage{../../style/lmu-lecture}`
+3. Add `\input{../../style/preamble}`
+4. Rename `blackbox_flashlight_left.pdf` from the `style` folder to `logo.pdf`
+5. Change title slide in this way:
+```latex
+\newcommand{\titlefigure}{figure/performance_vs_interpretability}
+\newcommand{\learninggoals}{
+\item Why interpretability?
+\item Developments until now?
+\item Use cases for interpretability}
+
+
+\lecturechapter{Introduction, Motivation, and History}
+\lecture{Interpretable Machine Learning}
+```
+becomes
+```latex
+\titlemeta{
+Interpretable Machine Learning % commenting out \title from line 10, since here we don't have heading-subheading structure (helps avoid duplication of the title)
+}{
+Introduction, Motivation, and History
+}{
+figure/performance_vs_interpretability
+}{
+\item Why interpretability?
+\item Developments until now?
+\item Use cases for interpretability
+}
+```
+6. Change `\begin{columns}` to `\splitVCC` or `\splitVTT` [more info](https://github.com/slds-lmu/lecture_service/wiki/Slides#splitv-column-layout-helpers)
+```latex
+\splitVCC[0.8]{ % 0.8 is the width of the first column
+  \begin{itemize}
+    \item Example itemize content for centered columns
+    \item Second itemize item
+  \end{itemize}
+  }{
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  }
+```
+7. Note: when using `\splitVCC` and having content splited into two frames, for some reason the second column moves when the slide changes
+8. For URL's (not papers) change `\citebutton{Some Text}{https:something}` to `\sourceref{https:something}`. The problem is that the text is hardcoded to `Click for source`. Don't know if this is problematic. Maybe a workaround is to pretend it's a paper and specify the text as an author.
+9. When citing papers we need to create a `references.bib` file for each chunk folder. 
+```bibtex
+\citebutton{Goodman \& Flaxman (2017)}{https://doi.org/10.1609/aimag.v38i3.2741}
+``` 
+get's replaced with 
+```latex
+references.bib file
+@article{Goodman_Flaxman,
+  author={Goodman and Flaxman},
+  year={2017},
+  url={https://doi.org/10.1609/aimag.v38i3.2741}
+}
+
+and actual code 
+\furtherreading{Goodman_Flaxman}
+```
+10. A small problem when we want the text to have multiple words - `\furtherreading` displays only the last name. Workaround is removing the author and setting a title
+
+```bibtex
+@article{European_Commission,
+    title={European Commission},
+    year={2019},
+    url={https://doi.org/10.2759/346720}
+}
+```
