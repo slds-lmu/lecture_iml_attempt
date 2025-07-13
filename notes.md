@@ -146,3 +146,10 @@ and actual code
     url={https://doi.org/10.2759/346720}
 }
 ```
+11.  If you want to use `\color` you'll need to add `\usepackage{xcolor}`, it no longer comes with `common.tex`. You may also need to add
+```latex
+\definecolor{ggred}{rgb}{0.973, 0.463, 0.427}
+\definecolor{ggblue}{rgb}{0, 0.749, 0.769}
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+```
+12. You may sometimes need to import staff from `latex-math` because it has been moved from `common.tex`
