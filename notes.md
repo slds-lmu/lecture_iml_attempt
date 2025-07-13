@@ -71,3 +71,7 @@ I manually added he `url` field, not sure if it is needed, but looks like it's p
 
 ## Footer (ToDo)
 Behaves weirdly now, 
+
+
+## Internal notes:
+Repo location is `\\wsl.localhost\Ubuntu\root\lecture_service_attempt`
