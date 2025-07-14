@@ -1,6 +1,6 @@
-\documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
+\documentclass[11pt,compress,t,notes=noshow, aspectratio=169, xcolor=table]{beamer}
 
-\input{../../style/preamble}
+\usepackage{../../style/lmu-lecture}
 % Defines macros and environments
 \input{../../style/common.tex}
 
@@ -21,19 +21,17 @@
 
 \begin{document}
 
-\titlemeta{
-Interpretable Machine Learning 
-}{
-Explainable Boosting Machines (EBM)
-}{
-figure/ebm.jpg
-}{
-\item Understand link between GAM and EBM
+\newcommand{\titlefigure}{figure/ebm.jpg}
+\newcommand{\learninggoals}{
+ \item Understand link between GAM and EBM
   \item Learn univariate EBMs\\
   $\hat{=}$ GAM + boosting + shallow bagged trees
   \item Extend to GA2M: GAMs with selected pairwise interactions
-  \item Detect interactions efficiently using FAST algorithm
-}
+  \item Detect interactions efficiently using FAST algorithm}
+
+\lecturechapter{Explainable Boosting Machines (EBM)}
+\lecture{Interpretable Machine Learning}
+
 %------------------------------------------------------------------
 %------------------------------------------------------------------
 
