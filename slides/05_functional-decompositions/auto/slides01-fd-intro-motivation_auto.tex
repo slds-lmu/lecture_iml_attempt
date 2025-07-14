@@ -1,7 +1,7 @@
 % OLD
 %\documentclass[11pt,compress,t,notes=noshow, aspectratio=169, xcolor=table]{beamer}
 % new
-\documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
+\\documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
 
 % OLD
 %\usepackage{../../style/lmu-lecture}
@@ -225,11 +225,26 @@ figure/25-05-31_Hooker_2004_graph_fANOVA
 
 \begin{frame}{General Form of Functional Decomposition
 %\\
+%% OLD
 %\citebutton{Sobol (1993)}{http://www.andreasaltelli.eu/file/repository/sobol1993.pdf}
-% \citebutton{Sobol (2003)}{https://doi.org/10.1016/S0951-8320(02)00229-6}
+% new
+\furtherreading{Sobol_1993}
+% % OLD
+%\citebutton{Sobol (2003)}{https://doi.org/10.1016/S0951-8320(02)00229-6}
+% new
+\furtherreading{Sobol_2003}
+%% OLD
 %\citebutton{Li et al. (2001)}{https://doi.org/10.1021/jp010450t}
-\citebutton{Li and Rabitz (2011)}{https://doi.org/10.1007/s10910-011-9898-0}
-\citebutton{Chastaing et al. (2012)}{https://doi.org/10.1214/12-EJS749}
+% new
+\furtherreading{Li_2001}
+% OLD
+%\citebutton{Li and Rabitz (2011)}{https://doi.org/10.1007/s10910-011-9898-0}
+% new
+\furtherreading{Rabitz_2011}
+% OLD
+%\citebutton{Chastaing et al. (2012)}{https://doi.org/10.1214/12-EJS749}
+% new
+\furtherreading{Chastaing_2012}
 }
 
 %\textbf{High-Dimensional Model Representation (HDMR):} 
@@ -429,7 +444,10 @@ $\leadsto$ reading from decision tree not enough, ``bad decomposition''
 % Above example: Decomposition no main effect, but model certainly contains main effect of e.g. $x_2$.\\
 
 \pause
-\textbf{Note:} \citebutton{Yang (2024)}{https://arxiv.org/abs/2410.19098} propose a (quite complicated) solution for this case
+\textbf{Note:} % OLD
+%\citebutton{Yang (2024)}{https://arxiv.org/abs/2410.19098}
+% new
+\furtherreading{Yang_2024} propose a (quite complicated) solution for this case
 % \(\Rightarrow\) Too complicated? Rather explain this in constraint-chapter or in other methods-chapter?
 
 \end{frame}
