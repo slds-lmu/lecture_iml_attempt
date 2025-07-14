@@ -2,9 +2,11 @@
 
 # Links
 Migration:
-1. [Temporary OverLeaf](https://www.overleaf.com/read/kcdyhfgwybvw#2ca12f)
-2. [Temporary repo](https://github.com/HaykTarkhanyan/lecture_service_attempt)
-3. [Google Sheet for status tracking](https://docs.google.com/spreadsheets/d/1CUaNZJt9qlAQZcsy_i1eFSv5n2B-eL_tfbIdLOAQUAM/edit?usp=sharing)
+1. [Notes](https://github.com/HaykTarkhanyan/lecture_service_attempt/blob/main/README.md)
+2. [Temporary OverLeaf](https://www.overleaf.com/read/kcdyhfgwybvw#2ca12f)
+3. [Temporary repo](https://github.com/HaykTarkhanyan/lecture_service_attempt)
+4. [Google Sheet for status tracking](https://docs.google.com/spreadsheets/d/1CUaNZJt9qlAQZcsy_i1eFSv5n2B-eL_tfbIdLOAQUAM/edit?usp=sharing)
+5. [Rendered PDFs (old and new)](https://github.com/HaykTarkhanyan/lecture_service_attempt/tree/main/pdfs)
 
 Useful links:
 1. [Lecture Service Repo](https://github.com/slds-lmu/lecture_service)
