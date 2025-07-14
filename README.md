@@ -145,7 +145,7 @@ Example:
 ```
 
 ## Citation
-Details [here](https://github.com/slds-lmu/lecture_service/wiki/Slides#citations-sourceref-and-furtherreading)
+Details are [here](https://github.com/slds-lmu/lecture_service/wiki/Slides#citations-sourceref-and-furtherreading)
 
 Looks like we're going to need `references.bib` file in each chunk folder (I used [SL](https://github.com/slds-lmu/lecture_sl/blob/main/slides/boosting/references.bib) as reference)
 
