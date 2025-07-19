@@ -1,11 +1,15 @@
 \documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
 
-\input{../../style/preamble}\n\input{../../latex-math/basic-math}
+\input{../../style/preamble}
+\input{../../latex-math/basic-math}
 \input{../../latex-math/basic-ml}
 % Defines macros and environments
 \input{../../style/common.tex}
 \newcommand{\open}{}
 \newcommand{\close}{}
+
+\newcommand{\predvar}{Var\left[\hat{f}(\xv)\right]}
+
 
 \title{Interpretable Machine Learning}
 % \author{LMU}
@@ -15,9 +19,9 @@
 \begin{document}
 
 \titlemeta{
-Functional ANOVA
+Functional Decompositions
 }{
-Interpretable Machine Learning
+Functional ANOVA
 }{
 figure/25-05-31_Hooker_2004_graph_fANOVA
 }{
@@ -63,7 +67,7 @@ figure/25-05-31_Hooker_2004_graph_fANOVA
         % \item \textbf{Question:} How to compute lower-order terms? \\
         % \(\leadsto\) First step: Use feature effect methods for main effects, here: PDP
         \pause
-        \item \textbf{Second idea:} In first step, compute main effects using feature effect methods \\
+        \item \textbf{Second idea:} In 1st step, compute main effects using feat effect methods \\
         Here: PDP + more general PD-functions
         \pause
         \item \textbf{Idea for fANOVA:} PD-function $\fh_{S;PD} =$ sum of all components $g_{\tilde{S}}$ up to this order
@@ -311,7 +315,7 @@ Estimation of a single PD-function: \textbf{Sampling}
 }
 
 \begin{itemize}[<+->]
-\item Decomposition of $\fh(\xv)$ allows for ``functional analysis of variance'' (fANOVA)
+\item Decomp. of $\fh(\xv)$ allows for ``functional analysis of variance'' (fANOVA)
 %$$ \var\left[\hat{f}(\xv)\right] = \var\left[g_{\open \emptyset \close} + g_{\open 1 \close}(x_1) + \;\dots\; + g_{\open 1, 2 \close}(x_1, x_2) + \;\dots\; + g_{\open 1,\ldots,p \close}(\xv) \right]$$
 % \begin{align*}
 % \var\left[\hat{f}(\xv)\right] &= \var\left[g_{\open \emptyset \close} + g_{\open 1 \close}(x_1) + g_{\open 2 \close}(x_2) + \;\dots\; + g_{\open 1, 2 \close}(x_1, x_2) \right. \\

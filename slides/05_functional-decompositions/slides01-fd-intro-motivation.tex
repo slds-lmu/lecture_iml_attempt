@@ -1,6 +1,7 @@
 \documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
 
-\input{../../style/preamble}\n\input{../../latex-math/basic-math}
+\input{../../style/preamble}
+\input{../../latex-math/basic-math}
 \input{../../latex-math/basic-ml}
 % Defines macros and environments
 \input{../../style/common.tex}
@@ -22,18 +23,16 @@
 %- other methods (gen fANOVA, ALE)
 
 \titlemeta{
-Introduction to Functional Decomposition
+Functional Decompositions
 }{
-Interpretable Machine Learning
+Introduction
 }{
 figure/25-05-31_Hooker_2004_graph_fANOVA
 }{
-
 \item Basic idea of additive functional decompositions
 \item Motivation and usefulness of functional decompositions
 \item Difficulty of obtaining or even defining a functional decomposition
 \item Several examples
-
 }
 
 
@@ -105,7 +104,7 @@ figure/25-05-31_Hooker_2004_graph_fANOVA
         %     g_{1,2}(x_1, x_2) = |x_1|x_2 & \text{ Part depending on both features (interaction)}  \\
         % \end{matrix}
         \end{equation}
-        \item[$\leadsto$] single terms with immediate interpretation, full understanding of the model
+        \item[$\leadsto$] Single terms with immediate interpretation, full model understanding 
 
         \pause
         \item[$\leftrightarrow$] Not possible with effects of single features (e.g. PDPs) or GAM surrogate model (miss interaction part)
@@ -230,7 +229,7 @@ $\leadsto$ one component for every possible combination $S$ of indices, allowed 
 
 \textbf{Problems:}
 \begin{itemize}
-    \item How to find / compute such a decomposition for arbitrary black-box models $\fh$?
+    \item How to find / compute such a decomposition for any black-box models $\fh$?
     \item \dots such that the decomposition is useful / has nice properties (w.r.t. the model / w.r.t. the data)?
 \end{itemize}
 
@@ -295,7 +294,7 @@ Sort terms according to degree of interaction:
     $$
     \item Same for LMs: Decomposition explicitly modeled
     \pause
-    \item Easy decomposition also for decision trees and tree ensembles (see below)
+    \item Easy decomp. also for decision trees and tree ensembles (see below)
     \pause
     \item \textbf{Problem 1:} Calculating decomposition extremely difficult, often infeasible
     \begin{itemize}
@@ -364,7 +363,7 @@ Sort terms according to degree of interaction:
 \begin{frame}{Example: Decision Trees}
 
 \only<1,2>{
-Define \textit{interaction type $t$} of a node: subset of features involved in constructing this node.
+Define \textit{interaction type $t$} of a node: subset of features used to build this node.
 
 \textbf{Example:}
 
@@ -442,6 +441,7 @@ $\leadsto$ reading from decision tree not enough, ``bad decomposition''
 % Above example: Decomposition no main effect, but model certainly contains main effect of e.g. $x_2$.\\
 
 \pause
+\medskip
 \textbf{Note:} \furtherreading{Yang_2024} propose a (quite complicated) solution for this case
 % \(\Rightarrow\) Too complicated? Rather explain this in constraint-chapter or in other methods-chapter?
 

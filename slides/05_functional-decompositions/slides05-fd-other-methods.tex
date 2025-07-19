@@ -1,6 +1,7 @@
 \documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
 
-\input{../../style/preamble}\n\input{../../latex-math/basic-math}
+\input{../../style/preamble}
+\input{../../latex-math/basic-math}
 \input{../../latex-math/basic-ml}
 % Defines macros and environments
 \input{../../style/common.tex}
@@ -15,9 +16,9 @@
 \begin{document} 
 
 \titlemeta{
-Functional Decompositions: Further Methods
+Functional Decompositions
 }{
-Interpretable Machine Learning
+Further Methods
 }{
 figure/25-05-31_Hooker_2004_graph_fANOVA
 }{
@@ -89,7 +90,7 @@ figure/25-05-31_Hooker_2004_graph_fANOVA
     $$
     \pause
     $\leadsto$ Only components are orthogonal where $g_{V}(\xv_V)$ is ``lower in hierarchy'' than $g_{S}(\xv_S)$
-    \item[$\implies$] Generalized fANOVA provides functional decomposition for arbitrary settings
+    \item[$\implies$] Generalized fANOVA provides functional decomp. for arbitrary settings
     \item \textbf{Advantage:} Also provides a variance decomposition
     \pause
     \item \textbf{Problems:}
@@ -148,7 +149,7 @@ figure/25-05-31_Hooker_2004_graph_fANOVA
         \pause
         \item \textbf{Advantages:} Handle dependencies well + computationally fast
         \item Constraints / orthogonality properties more complicated
-        \item[$\implies$] ALE decomposition theoretically more involved, but good alternative in practice
+        \item[$\implies$] ALE decomp. theoretically more involved, but good alternative in practice
     \end{itemize}
     
 \end{frame}
@@ -170,12 +171,12 @@ figure/25-05-31_Hooker_2004_graph_fANOVA
 
     \begin{itemize}
         
-        \item If computed, offer a lot of insight into a model or function, i.p. high-dimensional
+        \item If computed, offer many insights into a model / function, i.p. high-dim.
         \item[$\rightarrow$] Complete analysis of all interactions
         \pause
         \item Very important theoretical concept:
         \begin{itemize}
-            \item Theoretical framework for general definition of interactions (H-statistic)
+            \item Theoretical framework for general definition of interact.-s (H-statistic)
             \item Theoretical background for many IML methods:
                 GAMs and EBMs, 
                 ICE, PDPs and PD-functions,
@@ -190,12 +191,12 @@ figure/25-05-31_Hooker_2004_graph_fANOVA
         \end{itemize}
         \pause
         \item In practice often infeasible ($2^p$ components for $p$ features)
-        \item[$\implies$] Often only sparse decompositions feasible (E.g. EBMs)
+        \item[$\implies$] Often only sparse decompositions feasible (e.g. EBMs)
         \pause
         \item All single methods have disadvantages:
         \begin{itemize}
             \item Standard fANOVA: Only independent features + compute intensive
-            \item Generalized fANOVA: Even more computational intensive, evtl. infeasible
+            \item Generalized fANOVA: Even more computational intensive, eventually infeasible
             \item ALE: No variance decomposition
         \end{itemize}
         
