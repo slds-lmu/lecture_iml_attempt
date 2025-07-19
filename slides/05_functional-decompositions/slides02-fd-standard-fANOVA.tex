@@ -1,6 +1,7 @@
-\documentclass[11pt,compress,t,notes=noshow, aspectratio=169, xcolor=table]{beamer}
+\documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
 
-\usepackage{../../style/lmu-lecture}
+\input{../../style/preamble}\n\input{../../latex-math/basic-math}
+\input{../../latex-math/basic-ml}
 % Defines macros and environments
 \input{../../style/common.tex}
 \newcommand{\open}{}
@@ -13,15 +14,20 @@
 
 \begin{document}
 
-\newcommand{\titlefigure}{figure/25-05-31_Hooker_2004_graph_fANOVA}
-\newcommand{\learninggoals}{
+\titlemeta{
+Functional ANOVA
+}{
+Interpretable Machine Learning
+}{
+figure/25-05-31_Hooker_2004_graph_fANOVA
+}{
+
 \item One method for functional decomposition: Classical functional ANOVA (fANOVA)
 \item Algorithm for calculating the components in a fANOVA
 \item Variance decomposition in fANOVA
+
 }
 
-\lecturechapter{Functional ANOVA}
-\lecture{Interpretable Machine Learning}
 
 \begin{frame}{Introduction and History of fANOVA}
 
@@ -88,7 +94,7 @@
 \end{frame}
 
 \begin{frame}{Formal Definition and Computation
-\citebutton{Hooker (2004)}{https://dl.acm.org/doi/10.1145/1014052.1014122}
+\furtherreading{Hooker_2004}
 }
 
 % Components are recursively defined using marginals (here $-S = \{1, \ldots, p \} \setminus S$ denotes the set of all indizes not contained in \(S\)):
@@ -114,7 +120,7 @@
 \end{frame}
 
 \begin{frame}{Formal Definition and Computation
-\citebutton{Hooker (2004)}{https://dl.acm.org/doi/10.1145/1014052.1014122}
+\furtherreading{Hooker_2004}
 }
 
 % Components are recursively defined using marginals (here $-S = \{1, \ldots, p \} \setminus S$ denotes the set of all indizes not contained in \(S\)):
@@ -265,7 +271,7 @@
         &= |x_1| x_2 - 0.5 |x_1| - 0.5 x_2 + 0.25
         \end{align*}
         \item[$\Rightarrow$] All components shifted to have mean 0
-        \item[$\Rightarrow$] Parts of interaction term attributed to main effects (correctly, depends on distribution!)
+        \item[$\Rightarrow$] Parts of $|x_1|x_2$, which intuitively seems to be the ``interaction term'', is attributed to the main effects (correctly, depends on distribution!)
         }
         
     \end{itemize}

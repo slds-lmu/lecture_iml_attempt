@@ -1,6 +1,7 @@
-\documentclass[11pt,compress,t,notes=noshow, aspectratio=169, xcolor=table]{beamer}
+\documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
 
-\usepackage{../../style/lmu-lecture}
+\input{../../style/preamble}\n\input{../../latex-math/basic-math}
+\input{../../latex-math/basic-ml}
 % Defines macros and environments
 \input{../../style/common.tex}
 \newcommand{\open}{}
@@ -13,16 +14,21 @@
 
 \begin{document}
 
-\newcommand{\titlefigure}{figure/25-05-31_Hooker_2004_graph_fANOVA}
-\newcommand{\learninggoals}{
+\titlemeta{
+Theory of Standard fANOVA
+}{
+Interpretable Machine Learning
+}{
+figure/25-05-31_Hooker_2004_graph_fANOVA
+}{
+
 \item Properties of classical fANOVA, reason for its popularity
 \item Equivalent definition of classical fANOVA
 % \item Understanding why fANOVA theoretically works and what constraints it satisfies
 \item Understand the role constraints play for any functional decomposition
+
 }
 
-\lecturechapter{Theory of Standard fANOVA}
-\lecture{Interpretable Machine Learning}
 
 \begin{frame}{Example: fANOVA Algorithm}
     \begin{itemize}

@@ -1,6 +1,7 @@
-\documentclass[11pt,compress,t,notes=noshow, aspectratio=169, xcolor=table]{beamer}
+\documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
 
-\usepackage{../../style/lmu-lecture}
+\input{../../style/preamble}\n\input{../../latex-math/basic-math}
+\input{../../latex-math/basic-ml}
 % Defines macros and environments
 \input{../../style/common.tex}
 
@@ -11,19 +12,24 @@
 
 \begin{document}
 
-\newcommand{\titlefigure}{figure/h-statistic}
-\newcommand{\learninggoals}{
+\titlemeta{
+Friedman's H-Statistic
+}{
+Interpretable Machine Learning
+}{
+figure/h-statistic
+}{
+
 \item Friedman's H-statistic with two purposes:
 \item Measure general $k$-way interactions between arbitrary features
 \item Measure a single feature's overall interaction strength
+
 }
 
-\lecturechapter{Friedman's H-Statistic}
-\lecture{Interpretable Machine Learning}
 
 
 
-\begin{frame}{Idea \citebutton{Friedman and Popescu (2008)}{https://doi.org/10.1214/07-AOAS148}}
+\begin{frame}{Idea \furtherreading{Popescu_2008}}
 
     \textbf{2-way interaction:}
     \begin{itemize}[<+->]
@@ -65,7 +71,7 @@
 
 
 
-\begin{frame}{Idea \citebutton{Friedman and Popescu (2008)}{https://doi.org/10.1214/07-AOAS148}}
+\begin{frame}{Idea \furtherreading{Popescu_2008}}
 
 \textbf{3-way interaction:}
 \begin{itemize}[<+->]
@@ -94,7 +100,7 @@
 
 
 
-\begin{frame}{Idea \citebutton{Friedman and Popescu (2008)}{https://doi.org/10.1214/07-AOAS148}}
+\begin{frame}{Idea \furtherreading{Popescu_2008}}
 
 \textbf{$k$-way interaction:}
 \begin{itemize}
