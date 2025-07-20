@@ -14,14 +14,20 @@
 %\bibliography{feature-importance}
 
 \begin{document}
-    
-    \newcommand{\titlefigure}{figure_man/feature-importance.png}
-    \newcommand{\learninggoals}{
-    	\item Understand motivation for feature importance
-    	\item Develop an intuition for possible use-cases
-    	\item Know characteristics of feature importance methods}
-	
-	% Set style/preamble.Rnw as parent.
+
+
+\titlemeta{
+Feature Importances 1
+}{
+Intro to Loss-based Feature Importance
+}{
+figure_man/feature-importance.png
+}{
+\item Understand motivation for feature importance
+\item Develop an intuition for possible use-cases
+\item Know characteristics of feature importance methods
+}
+% Set style/preamble.Rnw as parent.
 	
 	% Load all R packages and set up knitr
 	
@@ -31,8 +37,6 @@
 	
 	% Defines macros and environments
 
-	\lecturechapter{Introduction to Loss-based Feature Importance}
-	\lecture{Interpretable Machine Learning}
 	
 	% ------------------------------------------------------------------------------
 
@@ -47,7 +51,7 @@
   \item<2-3> \textbf{Feature importance} quantifies how much each $x_j$ contributes to prediction error%methods quantify the relevance of features w.r.t. prediction performance
   \begin{itemize}
     \item condenses information into one number per feature
-    \item typically compares prediction errors (involves $y$) with and without feature
+    \item typically compares prediction errors (involves $y$) with/without feature
     % \item condensed to one number per feature
     % \item provides insight into the relationship with $y$
   \end{itemize}
@@ -61,7 +65,7 @@
 
 \begin{frame}{Example}
 
-Feature importance offers condensed summary of feat. relevance w.r.t. performance
+Feature importance provides a condensed summary of feature relevance \\w.r.t. performance
 
 \medskip
 
@@ -111,14 +115,14 @@ Many loss-based feature importance methods exist, which mainly differ in
 \begin{itemize}
   \item \textbf{Remove $X_j$ and refit:} Drop the $X_j$ and retrain model without it %(LOCO)
   \item \textbf{Perturb $X_j$:} Replace $X_j$ by $\tilde X_j$ sampled from  
-        \textit{marginal} or \textit{conditional} distribution % (PFI/CFI)
+        \textit{marginal}/\textit{conditional} distrib. % (PFI/CFI)
   \item \textbf{Marginalize $X_j$:} integrate out $X_j$ via  
         \textit{marginal} or \textit{conditional} distribution %(mSAGE/cSAGE)
 \end{itemize}
 
 \pause\medskip
 
-\textbf{(2) How they compare model performance before and after feature removal}
+\textbf{(2) How they compare model performance before and after feat. removal}
 \begin{itemize}
      \item \textbf{Compare ``reduced model'' without FOI vs. full model}: \\
      Measure drop in performance when FOI is ``removed'' \\
@@ -130,7 +134,7 @@ Many loss-based feature importance methods exist, which mainly differ in
     $\leadsto$ Similar idea as forward feature selection %(LOCI)%\\
      %$\leadsto$ Leave-one-covariate in (LOCI)
     \item \textbf{Compare models with/without FOI across different feature sets}: \\
-    Measure average contribution when FOI joins any feature set (Shapley-based) %(cSAGE, mSAGE)%\\
+    Measure average contrib. when FOI joins any feat. set (Shapley-based) %(cSAGE, mSAGE)%\\
      %$\leadsto$ Shapley Additive Global Importance (SAGE)
   % \item \emph{Reduced vs. full model:} performance drop when $X_j$ is removed %(LOCO, PFI, CFI)
   % \item \emph{FOI only vs. empty model:} performance gain when only the feature is used %(LOCI)
@@ -140,7 +144,7 @@ Many loss-based feature importance methods exist, which mainly differ in
 
 \pause \medskip
 
-\textit{Depending on the different removal/perturbation and comparison strategies, feature importance methods provide insight into different aspects of model and data.}
+\textit{Depending on the different removal/perturbation and comparison strategies, feat. imp. methods provide insight into different aspects of model and data.}
 \end{frame}
 
 
@@ -168,7 +172,7 @@ For example, one may be interested in getting insight into whether the ...
     %   \end{itemize}
     % \end{itemize}}
     \item[(2)] feature $x_j$ contains prediction-relevant information about $y$?
-    \item[(3)] model requires access to $x_j$ to achieve it's prediction performance?
+    \item[(3)] model requires access to $x_j$ to achieve its prediction performance?
 \end{enumerate}
 \end{frame}
 
@@ -220,7 +224,7 @@ A feature may be causal for $\yh$ (1) without containing prediction-relevant inf
 }
   \end{column}
   %\hspace{0.2cm}
-  \begin{column}{0.5\linewidth}
+  \begin{column}{0.55\linewidth}
 
   \textit{Example:} overfitting due to noisy features
   \pause
@@ -353,7 +357,7 @@ A feature may be causal for $\yh$ (1) without containing prediction-relevant inf
 }
   \end{column}
   %\hspace{0.2cm}
-  \begin{column}{0.48\textwidth}
+  \begin{column}{0.51\textwidth}
   \textit{Example:} underfitting, model multiplicity
   %\lz
   \pause
@@ -491,10 +495,10 @@ For example, one may be interested in getting insight into whether the ...
       %, as measured by the difference in expected loss
       %%\item e.g. when $\E[y|x_j] \neq \E[y]$ for models that minimize MSE
       %\item feature selection terminology: \textit{weak relevance} \furtherreading{Pellet_2008}
-      \item If $x_j \indep y$, then $\E[y|x_j] = \E[y]$ and $x_j$ and $y$ have zero mutual information\\ %and therefore cannot contain 
+      \item If $x_j \indep y$, then $\E[y|x_j] = \E[y]$ and $x_j$ and $y$ have 0 mutual info.\\ %and therefore cannot contain 
       $\leadsto$ $x_j$ carries no prediction-relevant information
     \end{itemize}
-    \item[(3)] model requires access to $x_j$ to achieve it's prediction performance?
+    \item[(3)] model requires access to $x_j$ to achieve its prediction performance?
     \begin{itemize}
       \item $x_{j}$ helps predict $y$ w.r.t. performance, compared to using only $x_{-j}$  %, as measured by the difference in expected loss
       %%\item e.g. when $\E[y|x_{-j}] \neq \E[y|x_j, x_{-j}]$ for models that minimize MSE
