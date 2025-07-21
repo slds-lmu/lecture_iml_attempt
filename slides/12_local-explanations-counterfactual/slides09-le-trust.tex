@@ -6,6 +6,9 @@
 % Defines macros and environments
 \input{../../style/common.tex}
 
+\usepackage{comment}
+
+
 \title{Interpretable Machine Learning}
 \date{}
 
@@ -22,13 +25,12 @@
 
 % Defines macros and environments
 \titlemeta{
-Local Explanations: LIME
+Local Explanations:
 }{
 Increasing Trust in Explanations
 }{
 figure/dbscan.jpg
 }{
-
 \item Understand the aspects that undermine users' trust in an explanation
 \item Learn diagnostic tools that could increase trust 
 }
@@ -68,7 +70,7 @@ figure/dbscan.jpg
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[c]{Out-of-distribution Detection}
+\begin{frame}[c]{Out-of-distribution (OOD) Detection}
 	\begin{itemize}
 		\item Models are unreliable in areas with little data support\\ $\leadsto$ explanations from local explanation methods are unreliable
 		\pause
@@ -76,7 +78,7 @@ figure/dbscan.jpg
 		\begin{itemize}
 			\item The data for LIME's surrogate model
 			\item Counterfactuals themselves
-			\item Shapley value's permuted observations to calculate the marginal contributions 
+			\item Shapley value's permuted obs. to calculate the marginal contribs 
 			\item ICE curves grid data points 
 		\end{itemize}
 		\pause
@@ -85,15 +87,15 @@ figure/dbscan.jpg
 		    \item Classifier for out-of-distribution
 		    \item Clustering
 		\end{itemize}
-		\item More complicated also possible, e.g., variational autoencoders [\href{https://arxiv.org/abs/1912.05651}{Daxberger et al. 2020}]
+		\item More complicated also possible, e.g., variational autoencoders \furtherreading{Daxberger_2020}
 	\end{itemize}
 \end{frame}
 
 
-\begin{frame}[c]{Out-of-distribution Detection: OOD-Classifier}
+\begin{frame}[c]{OOD Detection: OOD-Classifier}
 	\begin{itemize}
 	    \item Problem: we have only in-distribution data
-	    \item Idea: Hallucinate new (out-of-distribution) data by randomly sample data points
+	    \item Idea: Hallucinate new (ood) data by randomly sampling data points
 	    \item[$\leadsto$] Learn a binary classifier to distinguish between the origins of the data
 	    \medskip
 	    \pause
@@ -105,7 +107,7 @@ figure/dbscan.jpg
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[c]{Out-of-distribution Detection: Clustering via DBSCAN}
+\begin{frame}[c]{OOD Detection: Clustering via DBSCAN}
 \begin{itemize}
 	\item DBSCAN is a data clustering algorithm \furtherreading{Ester_1996}\\ (Density-Based Spatial Clustering of Applications with Noise) 
 	\pause
@@ -177,7 +179,7 @@ figure/dbscan.jpg
 		\begin{itemize}
 		\item Differentiate between different kinds of uncertainty: 
 		\begin{enumerate}
-			\item \textbf{Explanation uncertainty}: Change of explanation if we repeat the process, e.g., the explanation could differ depending on which subset of data we use for the explanation method and which hyperparameters 
+			\item \textbf{Explanation uncertainty}: Change of explanation if we repeat the process, e.g., the explanation could differ depending on which subset of data we use for the expl. method and which hyperparams 
 			\pause
 			\item \textbf{Process uncertainty}: Change of explanation if the underlying model is changed\\ $\leadsto$ are ML models non-robust, e.g., because they are trained on noisy data?
 		\end{enumerate}

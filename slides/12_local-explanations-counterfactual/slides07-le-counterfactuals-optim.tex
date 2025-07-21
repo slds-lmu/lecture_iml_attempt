@@ -1,10 +1,13 @@
-\documentclass[11pt,compress,t,notes=noshow, aspectratio=169, xcolor=table, usenames,dvipsnames]{beamer}
+\documentclass[10pt,compress,t,notes=noshow, xcolor=table]{beamer}
 
 \input{../../style/preamble}
 \input{../../latex-math/basic-math}
 \input{../../latex-math/basic-ml}
 % Defines macros and environments
 \input{../../style/common.tex}
+
+\usepackage[dvipsnames]{xcolor}
+
 
 \title{Interpretable Machine Learning}
 % \author{LMU}
@@ -25,13 +28,12 @@
 % Defines macros and environments
 
  \titlemeta{
-Local Explanations: LIME
+Counterfactual Explanations:
 }{
-CE: Optimization Problem and Objectives
+Optimization Problem and Objectives
 }{
 figure/counterfactuals_obj
 }{
-
 \item Formulate CEs as optimization problem
 \item Identify key objectives (proximity, sparsity)
 \item Understand trade-offs in CE generation
@@ -40,15 +42,15 @@ figure/counterfactuals_obj
 
 
 \begin{frame}{Mathematical Perspective}
-	Terminology:
-	\begin{itemize}
-		\item $\xv$: original/factual datapoint whose prediction we want to explain
-		\item $y' \subset \R^g$: desired prediction ($y' =$ ``grant credit") or interval ($y' = [1000, \infty[$)
-	\end{itemize}
-	\lz\pause
-	A \textbf{valid} counterfactual $\xv'$ satisfies two criteria:
-	\begin{enumerate}
-    \item \textbf{Prediction validity:} CE's prediction $\fh(\xv')$ is equal to the desired prediction $y'$ 
+    Terminology:
+    \begin{itemize}
+        \item $\xv$: original/factual data point whose prediction we want to explain
+        \item $y' \subset \R^g$: desired predi. ($y' =$ ``grant credit") or interval ($y' = [1000, \infty[$)
+    \end{itemize}
+    \lz\pause
+    A \textbf{valid} counterfactual $\xv'$ satisfies two criteria:
+    \begin{enumerate}
+    \item \textbf{Prediction validity:} CE's prediction $\fh(\xv')$ is equal to the desired pred. $y'$ 
 \item \textbf{Proximity:} CE $\xv'$ is as close as possible to the original input $\xv$
 		% \item whose prediction $\fh(\xv')$ is equal to the desired prediction $y'$ (prediction validity)
 		% \item maximally close to the original datapoint $\xv$ (proximity)
@@ -102,7 +104,7 @@ o_{proximity}(\xv', \xv) = \Gower(\xv', \xv) = \frac{1}{p} \sum_{j = 1}^{p} \del
 \begin{itemize}
   \item $\delta_G(x'_j, x_j) = \mathbb{I} \left\{ x'_j \ne x_j \right\}$ if $x_j$ is categorical
   \item $\delta_G(x'_j, x_j) = \frac{1}{\widehat{R}_j} \, |x'_j - x_j| $ if $x_j$ is numerical\\
-  $\leadsto \widehat{R}_j$ is the range of feature $j$ in the training set to ensure $\delta_G(x'_j, x_j) \in [0, 1]$
+  $\leadsto \widehat{R}_j$: range of feature $j$ in the training set to ensure $\delta_G(x'_j, x_j) \in [0, 1]$
 \end{itemize}
 
 \end{frame}
@@ -172,16 +174,16 @@ o_{proximity}(\xv', \xv) = \Gower(\xv', \xv) = \frac{1}{p} \sum_{j = 1}^{p} \del
 	\begin{column}{0.43\textwidth}
 	\includegraphics[width=1\textwidth]{figure/counterfactuals_obj}			
 	\end{column}
-	\begin{column}{0.56\textwidth}
-
-\textbf{Example from \furtherreading{Verma_2020}} 
-\begin{itemize}
-    \item Input \textcolor{blue}{$\xv$} originally classified as $\pmb{\circleddash}$ 
-    \item Two valid CEs in class $\pmb\oplus$: {\color{Red} CF1} and {\color{Green} CF2}
-    \item {\color{Red} Path \textbf{A} (CF1)} is shorter (but unrealistic)
-    \item {\color{Green} Path \textbf{B} (CF2)} is longer but in data manifold
-\end{itemize}
-%Two possible paths for \textcolor{blue}{$\xv$},			originally classified in the negative class. The two counterfactuals (\textcolor{red}{CF1} and \textcolor{green}{CF2}) are valid. Note that the red path $A$ for CF1 is the shortest, whereas the green path $B$ for CF2 adheres closely to the manifold of the training data, but is longer.
+    
+\begin{column}{0.6\textwidth}
+    \textbf{Example from \furtherreading{Verma_2020}} 
+    \begin{itemize}
+        \item Input \textcolor{blue}{$\xv$} originally classified as $\pmb{\circleddash}$ 
+        \item Two valid CEs in class $\pmb\oplus$: {\color{Red} CF1} and {\color{Green} CF2}
+        \item {\color{Red} Path \textbf{A} (CF1)} is shorter (but unrealistic)
+        \item {\color{Green} Path \textbf{B} (CF2)} is longer but in data manifold
+    \end{itemize}
+    %Two possible paths for \textcolor{blue}{$\xv$},			originally classified in the negative class. The two counterfactuals (\textcolor{red}{CF1} and \textcolor{green}{CF2}) are valid. Note that the red path $A$ for CF1 is the shortest, whereas the green path $B$ for CF2 adheres closely to the manifold of the training data, but is longer.
 \end{column}
 \end{columns}
 }
@@ -241,7 +243,7 @@ $$o_{plausibe}(\xv', \Xmat) = \Gower(\xv', \xv^{[1]}) = \frac{1}{p} \sum_{j = 1}
 	\item Present all CEs for $\xv$ (but: time and human processing capacity is limited)
 		%\item We could present all CEs for a given case; however, time is limited and so is the human processing capacity
 		%\item Another solution is to focus on one or few CEs; however, by which criterion should they be selected?
-		\item Focus on one or few CEs (but: by which criterion should guide this choice?)
+		\item Focus on one/few CEs (but: by which criterion should guide this choice?)
 	\end{itemize}
 	
 \lz\pause
@@ -249,7 +251,7 @@ $$o_{plausibe}(\xv', \Xmat) = \Gower(\xv', \xv^{[1]}) = \frac{1}{p} \sum_{j = 1}
 \textbf{Note:}
 	\begin{itemize}
       \item Nonlinear models can produce diverse and inconsistent CEs\\
-  $\leadsto$ suggest both increasing and decreasing credit duration (confusing for users)
+  $\leadsto$ suggest both increasing and decreasing credit duration\\ (confusing for users)
   \item Handling this \textbf{Rashomon effect} remains an open problem in interpretable ML
   %       \item As the model is generally non-linear, inconsistent and diverse CEs can arise\\
   %       e.g. suggesting either an increase or decrease in credit duration (confuses the explainee)
@@ -260,7 +262,7 @@ $$o_{plausibe}(\xv', \Xmat) = \Gower(\xv', \xv^{[1]}) = \frac{1}{p} \sum_{j = 1}
 \begin{frame}{Remarks: Model or Real-World}
 
 	\begin{itemize}
-	\item CEs explain model predictions, but may appear to explain the real-world users\\
+	\item CEs explain model predictions, but may seem to explain real-world users\\
 $\leadsto$ Transfer of model explanations to explain real-world is generally not permitted
   \item \textbf{Example:} CE suggests increasing age by 5 to receive a loan\\
   $\leadsto$ The applicant waits 5 years and reapplies
